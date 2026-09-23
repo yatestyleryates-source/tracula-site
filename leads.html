@@ -25,6 +25,11 @@ header img{height:26px;display:block;}
 .btn-ghost:hover{background:rgba(243,236,225,.1);}
 .gate{max-width:520px;margin:12vh auto;padding:40px;background:#fff;border:1px solid var(--rule);border-radius:6px;}
 .gate h1{font-size:34px;}
+.btn-google{width:100%;height:52px;font-size:16px;}
+.btn-quiet{width:100%;background:transparent;border:1px solid #CFC3B2;color:var(--ink);}
+.btn-quiet:hover{background:#EFE6D9;}
+.divider{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:14px;margin:22px 0 18px;}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--rule);}
 .gate p{color:var(--muted);line-height:1.6;margin:14px 0 26px;}
 input[type=email]{width:100%;height:52px;padding:0 14px;border:1px solid #CFC3B2;border-radius:3px;font-size:16px;font-family:inherit;margin-bottom:16px;}
 input[type=email]:focus{outline:none;border-color:var(--maroon);box-shadow:0 0 0 3px rgba(107,18,32,.15);}
@@ -92,8 +97,10 @@ tr:hover td{background:#FBF7F0;}
 <div id="gate" class="gate" hidden>
 <h1>Leads</h1>
 <p>Enter your email and we'll send you a one-time sign-in link. Only approved addresses can open this page.</p>
+<button class="btn btn-google" id="google-signin">Sign in with Google</button>
+<p class="divider"><span>or</span></p>
 <input type="email" id="gate-email" placeholder="you@nationsbest.net" autocomplete="email">
-<button class="btn" id="send-link">Email me a sign-in link</button>
+<button class="btn btn-quiet" id="send-link">Email me a sign-in link</button>
 <p class="msg" id="gate-msg"></p>
 </div>
 
@@ -143,7 +150,7 @@ tr:hover td{background:#FBF7F0;}
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getAuth, sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, collection, query, orderBy, limit, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { firebaseConfig } from "./firebase-config.js";
 import { ALLOWED_EMAILS } from "./allowed-emails.js";
@@ -168,6 +175,17 @@ function showGate(message, kind) {
   }
 }
 
+document.getElementById("google-signin").addEventListener("click", async () => {
+  try {
+    await signInWithPopup(auth, new GoogleAuthProvider());
+  } catch (err) {
+    console.error(err);
+    showGate(err.code === "auth/popup-blocked"
+      ? "Your browser blocked the sign-in window. Allow popups for this site and try again."
+      : "Couldn't sign in: " + err.message);
+  }
+});
+
 document.getElementById("send-link").addEventListener("click", async () => {
   const email = document.getElementById("gate-email").value.trim();
   if (!email) return showGate("Enter your email address.");
@@ -178,7 +196,9 @@ document.getElementById("send-link").addEventListener("click", async () => {
     showGate("Check your inbox. The link signs you in and expires after one use.", "ok");
   } catch (err) {
     console.error(err);
-    showGate("Couldn't send the link: " + err.message);
+    showGate(err.code === "auth/quota-exceeded"
+      ? "Firebase's daily limit for sign-in emails is used up. Use the Google button above, or try the email link again tomorrow."
+      : "Couldn't send the link: " + err.message);
   }
 });
 
