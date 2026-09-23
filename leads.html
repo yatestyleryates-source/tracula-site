@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Leads | Tracula Services</title>
+<link rel="icon" type="image/png" href="assets/tracula-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1A1714;--cream:#F3ECE1;--maroon:#6B1220;--brass:#B9924F;--rule:#E0D6C7;--muted:#6E625A;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Work Sans',sans-serif;}
+h1,h2{font-family:'Fraunces',serif;margin:0;font-weight:600;}
+a{color:var(--maroon);}
+header{background:var(--ink);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+header img{height:26px;display:block;}
+.head-right{display:flex;align-items:center;gap:16px;color:#C9BFB0;font-size:14px;}
+.wrap{padding:28px;}
+.btn{border:none;border-radius:3px;background:var(--maroon);color:var(--cream);font-family:'Work Sans',sans-serif;font-size:15px;font-weight:500;height:44px;padding:0 20px;cursor:pointer;transition:background .2s ease;}
+.btn:hover{background:#8A1D2E;}
+.btn-ghost{background:transparent;border:1px solid rgba(243,236,225,.4);color:var(--cream);}
+.btn-ghost:hover{background:rgba(243,236,225,.1);}
+.gate{max-width:520px;margin:12vh auto;padding:40px;background:#fff;border:1px solid var(--rule);border-radius:6px;}
+.gate h1{font-size:34px;}
+.gate p{color:var(--muted);line-height:1.6;margin:14px 0 26px;}
+input[type=email]{width:100%;height:52px;padding:0 14px;border:1px solid #CFC3B2;border-radius:3px;font-size:16px;font-family:inherit;margin-bottom:16px;}
+input[type=email]:focus{outline:none;border-color:var(--maroon);box-shadow:0 0 0 3px rgba(107,18,32,.15);}
+.msg{margin-top:16px;font-size:15px;line-height:1.5;}
+.msg-err{color:#A3261F;}
+.msg-ok{color:#2F6B34;}
+.bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px;}
+.bar input[type=search]{height:44px;padding:0 14px;border:1px solid #CFC3B2;border-radius:3px;font-size:15px;font-family:inherit;min-width:260px;}
+.count{font-size:15px;color:var(--muted);}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:#fff;}
+table{border-collapse:collapse;width:100%;font-size:14px;}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top;white-space:nowrap;}
+th{position:sticky;top:0;background:#EFE6D9;font-weight:600;cursor:pointer;user-select:none;}
+th:hover{color:var(--maroon);}
+th span{color:var(--brass);margin-left:6px;}
+td.msgcell{white-space:normal;min-width:260px;max-width:420px;}
+tr:hover td{background:#FBF7F0;}
+.tag{display:inline-block;background:#F0E4D4;border:1px solid #DFCDB4;border-radius:999px;padding:2px 10px;margin:2px 4px 2px 0;font-size:12px;white-space:nowrap;}
+.empty{padding:60px 20px;text-align:center;color:var(--muted);}
+@media(max-width:700px){.wrap{padding:16px;}.gate{margin:6vh 16px;padding:28px;}}
+</style>
+</head>
+<body>
+<header>
+<img src="assets/tracula-logo-cream.png" alt="Tracula">
+<div class="head-right">
+<span id="who"></span>
+<button class="btn btn-ghost" id="signout" hidden>Sign out</button>
+</div>
+</header>
+
+<div id="gate" class="gate" hidden>
+<h1>Leads</h1>
+<p>Enter your email and we'll send you a one-time sign-in link. Only approved addresses can open this page.</p>
+<input type="email" id="gate-email" placeholder="you@nationsbest.net" autocomplete="email">
+<button class="btn" id="send-link">Email me a sign-in link</button>
+<p class="msg" id="gate-msg"></p>
+</div>
+
+<div id="loading" class="wrap"><p class="count">Loading…</p></div>
+
+<main id="app" class="wrap" hidden>
+<div class="bar">
+<h1 style="font-size:28px;margin-right:auto;">Leads</h1>
+<input type="search" id="search" placeholder="Search name, store, email, notes…" aria-label="Search leads">
+<button class="btn" id="csv">Download CSV</button>
+</div>
+<p class="count" id="count"></p>
+<div class="tablewrap">
+<table>
+<thead><tr id="head"></tr></thead>
+<tbody id="rows"></tbody>
+</table>
+<div class="empty" id="empty" hidden>No leads yet. Submissions from the website will show up here.</div>
+</div>
+</main>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { firebaseConfig } from "./firebase-config.js";
+import { ALLOWED_EMAILS } from "./allowed-emails.js";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const gate = document.getElementById("gate");
+const gateMsg = document.getElementById("gate-msg");
+const loading = document.getElementById("loading");
+const appEl = document.getElementById("app");
+const allowed = (email) => ALLOWED_EMAILS.map((e) => e.toLowerCase()).includes(String(email || "").toLowerCase());
+
+function showGate(message, kind) {
+  loading.hidden = true;
+  appEl.hidden = true;
+  gate.hidden = false;
+  if (message) {
+    gateMsg.textContent = message;
+    gateMsg.className = "msg " + (kind === "ok" ? "msg-ok" : "msg-err");
+  }
+}
+
+document.getElementById("send-link").addEventListener("click", async () => {
+  const email = document.getElementById("gate-email").value.trim();
+  if (!email) return showGate("Enter your email address.");
+  if (!allowed(email)) return showGate("That address isn't approved for this page.");
+  try {
+    await sendSignInLinkToEmail(auth, email, { url: location.href.split("?")[0], handleCodeInApp: true });
+    window.localStorage.setItem("tracula_leads_email", email);
+    showGate("Check your inbox. The link signs you in and expires after one use.", "ok");
+  } catch (err) {
+    console.error(err);
+    showGate("Couldn't send the link: " + err.message);
+  }
+});
+
+document.getElementById("signout").addEventListener("click", () => signOut(auth).then(() => location.reload()));
+
+async function finishLinkSignIn() {
+  if (!isSignInWithEmailLink(auth, location.href)) return false;
+  let email = window.localStorage.getItem("tracula_leads_email");
+  if (!email) email = window.prompt("Confirm the email you requested the link with");
+  if (!email) return false;
+  try {
+    await signInWithEmailLink(auth, email, location.href);
+    window.localStorage.removeItem("tracula_leads_email");
+    history.replaceState({}, "", location.pathname);
+    return true;
+  } catch (err) {
+    console.error(err);
+    showGate("That sign-in link didn't work. It may have expired. Request a new one.");
+    return false;
+  }
+}
+
+const COLUMNS = [
+  { key: "createdAt", label: "Received" },
+  { key: "name", label: "Name" },
+  { key: "store", label: "Store" },
+  { key: "email", label: "Email" },
+  { key: "phone", label: "Phone" },
+  { key: "role", label: "Role" },
+  { key: "locations", label: "Locations" },
+  { key: "help", label: "Interested in" },
+  { key: "source", label: "Heard via" },
+  { key: "message", label: "Notes" }
+];
+const SOURCES = {
+  "dib-market": "Do It Best Market",
+  "linkedin": "LinkedIn",
+  "fast-query": "Fast Query",
+  "tracula-customer": "Existing customer",
+  "referral": "Fellow retailer",
+  "other": "Somewhere else"
+};
+
+let leads = [];
+let sortKey = "createdAt";
+let sortDir = -1;
+
+function fmtDate(d) {
+  if (!d) return "";
+  return d.toLocaleString(undefined, { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" });
+}
+
+function render() {
+  const term = document.getElementById("search").value.trim().toLowerCase();
+  const rows = leads
+    .filter((l) => !term || [l.name, l.store, l.email, l.phone, l.message, (l.help || []).join(" ")].join(" ").toLowerCase().includes(term))
+    .sort((a, b) => {
+      const av = sortKey === "createdAt" ? (a.createdAt ? a.createdAt.getTime() : 0) : String(a[sortKey] || "").toLowerCase();
+      const bv = sortKey === "createdAt" ? (b.createdAt ? b.createdAt.getTime() : 0) : String(b[sortKey] || "").toLowerCase();
+      return av < bv ? -sortDir : av > bv ? sortDir : 0;
+    });
+
+  document.getElementById("head").innerHTML = COLUMNS
+    .map((c) => `<th data-key="${c.key}">${c.label}${sortKey === c.key ? `<span>${sortDir === 1 ? "▲" : "▼"}</span>` : ""}</th>`)
+    .join("");
+  document.querySelectorAll("#head th").forEach((th) => {
+    th.addEventListener("click", () => {
+      const key = th.dataset.key;
+      if (key === sortKey) sortDir = -sortDir; else { sortKey = key; sortDir = key === "createdAt" ? -1 : 1; }
+      render();
+    });
+  });
+
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  document.getElementById("rows").innerHTML = rows.map((l) => `<tr>
+    <td>${esc(fmtDate(l.createdAt))}</td>
+    <td>${esc(l.name)}</td>
+    <td>${esc(l.store)}</td>
+    <td><a href="mailto:${esc(l.email)}">${esc(l.email)}</a></td>
+    <td>${l.phone ? `<a href="tel:${esc(l.phone)}">${esc(l.phone)}</a>` : ""}</td>
+    <td>${esc(l.role)}</td>
+    <td>${esc(l.locations)}</td>
+    <td>${(l.help || []).map((h) => `<span class="tag">${esc(h)}</span>`).join("")}</td>
+    <td>${esc(SOURCES[l.source] || l.source || "")}</td>
+    <td class="msgcell">${esc(l.message)}</td>
+  </tr>`).join("");
+
+  document.getElementById("empty").hidden = rows.length > 0;
+  document.getElementById("count").textContent = rows.length === leads.length
+    ? `${leads.length} lead${leads.length === 1 ? "" : "s"}`
+    : `${rows.length} of ${leads.length} leads`;
+}
+
+function toCSV() {
+  const cell = (v) => `"${String(v == null ? "" : v).replace(/"/g, '""')}"`;
+  const lines = [COLUMNS.map((c) => cell(c.label)).join(",")];
+  leads.forEach((l) => {
+    lines.push(COLUMNS.map((c) => {
+      if (c.key === "createdAt") return cell(l.createdAt ? l.createdAt.toISOString() : "");
+      if (c.key === "help") return cell((l.help || []).join("; "));
+      if (c.key === "source") return cell(SOURCES[l.source] || l.source || "");
+      return cell(l[c.key]);
+    }).join(","));
+  });
+  return lines.join("\r\n");
+}
+
+document.getElementById("csv").addEventListener("click", () => {
+  const blob = new Blob([toCSV()], { type: "text/csv;charset=utf-8;" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `tracula-leads-${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+document.getElementById("search").addEventListener("input", render);
+
+async function load(user) {
+  document.getElementById("who").textContent = user.email;
+  document.getElementById("signout").hidden = false;
+  try {
+    const snap = await getDocs(query(collection(db, "leads"), orderBy("createdAt", "desc")));
+    leads = snap.docs.map((d) => {
+      const data = d.data();
+      return Object.assign({}, data, { createdAt: data.createdAt && data.createdAt.toDate ? data.createdAt.toDate() : null });
+    });
+    loading.hidden = true;
+    gate.hidden = true;
+    appEl.hidden = false;
+    render();
+  } catch (err) {
+    console.error(err);
+    showGate("Signed in, but couldn't load leads: " + err.message);
+  }
+}
+
+(async () => {
+  await finishLinkSignIn();
+  onAuthStateChanged(auth, (user) => {
+    if (user && allowed(user.email)) load(user);
+    else if (user) { signOut(auth); showGate("That account isn't approved for this page."); }
+    else showGate();
+  });
+})();
+</script>
+</body>
+</html>

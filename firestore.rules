@@ -2,6 +2,13 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
+    // Only these signed-in addresses can read leads. Keep this list in sync with allowed-emails.js.
+    function isTeam() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in ['tyates@nationsbest.net', 'tvanbibber@nationsbest.net'];
+    }
+
     function shortString(v, max) {
       return v is string && v.size() <= max;
     }
@@ -22,11 +29,10 @@ service cloud.firestore {
         && d.createdAt == request.time;
     }
 
-    // Anyone can submit a lead. Nobody can read, change, or delete leads from the website.
-    // You view leads in the Firebase console, which uses your Google login instead of these rules.
     match /leads/{leadId} {
       allow create: if validLead(request.resource.data);
-      allow read, update, delete: if false;
+      allow read: if isTeam();
+      allow update, delete: if false;
     }
 
     match /{document=**} {
