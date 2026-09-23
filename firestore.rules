@@ -6,7 +6,7 @@ service cloud.firestore {
     function isTeam() {
       return request.auth != null
         && request.auth.token.email_verified == true
-        && request.auth.token.email in ['tyates@nationsbest.net', 'tvanbibber@nationsbest.net'];
+        && request.auth.token.email in ['yatestyleryates@gmail.com', 'tyates@nationsbest.net', 'tvanbibber@nationsbest.net'];
     }
 
     function shortString(v, max) {
