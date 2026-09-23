@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function shortString(v, max) {
+      return v is string && v.size() <= max;
+    }
+
+    function validLead(d) {
+      return d.keys().hasOnly(['name','store','email','phone','role','locations','help','message','source','page','createdAt'])
+        && d.keys().hasAll(['name','store','email','createdAt'])
+        && d.name is string && d.name.size() > 0 && d.name.size() <= 120
+        && d.store is string && d.store.size() > 0 && d.store.size() <= 160
+        && d.email is string && d.email.size() <= 200 && d.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
+        && (!('phone' in d) || shortString(d.phone, 40))
+        && (!('role' in d) || d.role in ['', 'Owner', 'Manager', 'Team member', 'Other'])
+        && (!('locations' in d) || d.locations in ['', '1', '2 to 5', '6 to 20', '21 or more'])
+        && (!('help' in d) || (d.help is list && d.help.size() <= 4))
+        && (!('message' in d) || shortString(d.message, 3000))
+        && (!('source' in d) || shortString(d.source, 40))
+        && (!('page' in d) || shortString(d.page, 200))
+        && d.createdAt == request.time;
+    }
+
+    // Anyone can submit a lead. Nobody can read, change, or delete leads from the website.
+    // You view leads in the Firebase console, which uses your Google login instead of these rules.
+    match /leads/{leadId} {
+      allow create: if validLead(request.resource.data);
+      allow read, update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
