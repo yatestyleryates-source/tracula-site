@@ -2,7 +2,8 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Only these signed-in addresses can read leads. Keep this list in sync with allowed-emails.js.
+    // Only these signed-in addresses can read leads and visits.
+    // Keep this list in sync with allowed-emails.js.
     function isTeam() {
       return request.auth != null
         && request.auth.token.email_verified == true
@@ -29,8 +30,26 @@ service cloud.firestore {
         && d.createdAt == request.time;
     }
 
+    // Coarse, anonymous visit records. No IP addresses, no identifiers.
+    function validVisit(d) {
+      return d.keys().hasOnly(['city','region','country','page','referrer','createdAt'])
+        && d.keys().hasAll(['createdAt'])
+        && (!('city' in d) || shortString(d.city, 80))
+        && (!('region' in d) || shortString(d.region, 80))
+        && (!('country' in d) || shortString(d.country, 80))
+        && (!('page' in d) || shortString(d.page, 200))
+        && (!('referrer' in d) || shortString(d.referrer, 200))
+        && d.createdAt == request.time;
+    }
+
     match /leads/{leadId} {
       allow create: if validLead(request.resource.data);
+      allow read: if isTeam();
+      allow update, delete: if false;
+    }
+
+    match /visits/{visitId} {
+      allow create: if validVisit(request.resource.data);
       allow read: if isTeam();
       allow update, delete: if false;
     }
