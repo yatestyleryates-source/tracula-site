@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Operational Excellence Support | Tracula Services</title>
+<meta name="description" content="Ongoing operational support for independent LBM and hardware retailers: merchandising standards, team training, metrics and accountability, and store leadership coaching.">
+<meta property="og:title" content="Operational Excellence Support — Tracula Services">
+<meta property="og:description" content="Ongoing operational support for independent LBM and hardware retailers: merchandising standards, team training, metrics and accountability, and store leadership coaching.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yatestyleryates-source.github.io/tracula-site/operational-excellence.html">
+<meta property="og:image" content="https://yatestyleryates-source.github.io/tracula-site/assets/share-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Tracula Services">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://yatestyleryates-source.github.io/tracula-site/assets/share-card.png">
+<meta name="theme-color" content="#1A1714">
+<link rel="icon" type="image/png" href="assets/tracula-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1A1714;font-family:'Work Sans',sans-serif;color:#F3ECE1;}
+a{color:#F3ECE1;text-decoration:none;}
+a:hover{color:#FFFFFF;}
+h1,h2,h3{font-family:'Fraunces',serif;margin:0;font-weight:500;}
+p{margin:0;}
+@property --n{syntax:'<integer>';initial-value:100;inherits:false;}
+@keyframes logoReveal{from{clip-path:inset(0 100% 0 0);}to{clip-path:inset(0 0 0 0);}}
+@keyframes rise{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes spinBack{to{transform:rotate(-360deg);}}
+@keyframes ticker{to{transform:translateX(-50%);}}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+@keyframes countUp{from{--n:0;}to{--n:100;}}
+@keyframes scrollIn{from{opacity:0;transform:translateY(48px);}to{opacity:1;transform:translateY(0);}}
+@keyframes lineFill{from{color:rgba(26,23,20,0.16);}to{color:#1A1714;}}
+@keyframes lineFillMaroon{from{color:rgba(107,18,32,0.16);}to{color:#6B1220;}}
+@keyframes lineFillDark{from{color:rgba(243,236,225,0.14);}to{color:#F3ECE1;}}
+@keyframes strike{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+.logo-hero{animation:logoReveal 1.4s cubic-bezier(0.77,0,0.18,1) 0.2s both;}
+.rise-1{animation:rise 1s cubic-bezier(0.16,1,0.3,1) 1.2s both;}
+.rise-2{animation:rise 1s cubic-bezier(0.16,1,0.3,1) 1.4s both;}
+.rise-3{animation:rise 1s cubic-bezier(0.16,1,0.3,1) 1.6s both;}
+.ring-a{animation:spin 90s linear infinite;transform-origin:center;}
+.ring-b{animation:spinBack 140s linear infinite;transform-origin:center;}
+.ticker-track{animation:ticker 38s linear infinite;}
+.ticker:hover .ticker-track{animation-play-state:paused;}
+.cue-line{animation:cue 2.4s cubic-bezier(0.65,0,0.35,1) infinite;}
+.count::after{counter-reset:n var(--n);content:counter(n);}
+.btn-maroon{transition:background 0.25s ease,transform 0.25s ease;}
+.btn-maroon:hover{background:#8A1D2E;transform:translateY(-2px);color:#F3ECE1;}
+.btn-cream{transition:background 0.25s ease,transform 0.25s ease;}
+.btn-cream:hover{background:#FFFFFF;transform:translateY(-2px);color:#1A1714;}
+.explore{transition:gap 0.3s ease;}
+.explore:hover{gap:18px;}
+.nav-link{opacity:0.8;transition:opacity 0.2s ease;}
+.nav-link:hover{opacity:1;}
+.scene{transition:border-color 0.3s ease,background 0.3s ease;}
+.scene:hover{border-color:#6B1220;background:#221E1A;}
+.struck{position:relative;display:inline;}
+.struck::after{content:'';position:absolute;left:-4px;right:-4px;top:55%;height:3px;background:#6B1220;transform-origin:left;transform:scaleX(1);}
+@supports (animation-timeline: view()){
+.reveal{animation:scrollIn linear both;animation-timeline:view();animation-range:entry 0% entry 70%;}
+.reveal-late{animation:scrollIn linear both;animation-timeline:view();animation-range:entry 20% entry 90%;}
+.fill-line{animation:lineFill linear both;animation-timeline:view();animation-range:entry 40% cover 45%;}
+.fill-maroon{animation:lineFillMaroon linear both;animation-timeline:view();animation-range:entry 40% cover 45%;}
+.fill-dark{animation:lineFillDark linear both;animation-timeline:view();animation-range:entry 40% cover 45%;}
+.count{animation:countUp linear both;animation-timeline:view();animation-range:entry 10% cover 40%;}
+.struck::after{animation:strike linear both;animation-timeline:view();animation-range:entry 60% cover 50%;}
+}
+@media (prefers-reduced-motion: reduce){
+*{animation:none !important;transition:none !important;}
+}
+a:focus-visible{outline:2px solid #B9924F;outline-offset:4px;}
+.lbl{display:block;font-size:14px;font-weight:600;color:#1A1714;margin-bottom:8px;}
+.opt{font-weight:400;color:#7A6E64;}
+.fld{width:100%;box-sizing:border-box;height:52px;padding:0 16px;border:1px solid #CFC3B2;border-radius:3px;background:#FFFFFF;font-family:'Work Sans',sans-serif;font-size:16px;color:#1A1714;transition:border-color 0.2s ease,box-shadow 0.2s ease;}
+.fld:focus{outline:none;border-color:#6B1220;box-shadow:0 0 0 3px rgba(107,18,32,0.16);}
+textarea.fld{height:120px;padding:14px 16px;resize:vertical;line-height:1.5;}
+select.fld{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#6B1220 50%),linear-gradient(135deg,#6B1220 50%,transparent 50%);background-position:calc(100% - 22px) 22px,calc(100% - 16px) 22px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:44px;}
+.fld-err{border-color:#A3261F;}
+.err{color:#A3261F;font-size:13px;margin-top:6px;}
+.chip{min-height:44px;padding:0 18px;border:1px solid #CFC3B2;border-radius:3px;background:#FFFFFF;color:#1A1714;font-family:'Work Sans',sans-serif;font-size:15px;cursor:pointer;transition:background 0.2s ease,border-color 0.2s ease,color 0.2s ease;}
+.chip:hover{border-color:#6B1220;}
+.chip-on{background:#6B1220;border-color:#6B1220;color:#F3ECE1;}
+.chip:focus-visible,.send:focus-visible{outline:2px solid #B9924F;outline-offset:3px;}
+.send{height:58px;padding:0 36px;border:none;border-radius:3px;background:#6B1220;color:#F3ECE1;font-family:'Work Sans',sans-serif;font-size:17px;font-weight:600;cursor:pointer;transition:background 0.25s ease,transform 0.25s ease;}
+.send:hover{background:#8A1D2E;transform:translateY(-2px);}
+.ln{font-family:'Fraunces',serif;font-size:inherit;line-height:1.2;color:#F3ECE1;background:transparent;border:none;border-bottom:2px solid rgba(243,236,225,0.45);border-radius:0;padding:0 4px 2px;margin:0 2px;transition:border-color 0.25s ease,background 0.25s ease;vertical-align:baseline;}
+.ln::placeholder{color:rgba(243,236,225,0.42);font-style:italic;}
+.ln:focus{outline:none;border-bottom-color:#E8C9A8;background:rgba(243,236,225,0.06);}
+select.ln{appearance:none;cursor:pointer;padding-right:30px;background-image:linear-gradient(45deg,transparent 50%,#E8C9A8 50%),linear-gradient(135deg,#E8C9A8 50%,transparent 50%);background-position:calc(100% - 16px) 55%,calc(100% - 9px) 55%;background-size:7px 7px,7px 7px;background-repeat:no-repeat;}
+select.ln option{color:#1A1714;background:#F3ECE1;font-style:normal;}
+.ln{color:#EFCB8E;}
+.ln:not(:placeholder-shown){border-bottom-color:#EFCB8E;}
+select.ln.ln-empty{color:rgba(243,236,225,0.42);font-style:italic;}
+select.ln.ln-filled{color:#EFCB8E;border-bottom-color:#EFCB8E;}
+.small-ln{color:#EFCB8E !important;}
+.ln-err,.ln-err:not(:placeholder-shown){border-bottom-color:#FFB4A8;}
+.pill{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;margin:6px 4px;border:1.5px solid rgba(243,236,225,0.55);border-radius:999px;background:transparent;color:#F3ECE1;font-family:'Work Sans',sans-serif;font-size:16px;cursor:pointer;vertical-align:middle;transition:background 0.2s ease,color 0.2s ease,border-color 0.2s ease;}
+.pill:hover{border-color:#F3ECE1;}
+.pill-on{background:#F3ECE1;color:#6B1220;border-color:#F3ECE1;}
+.pill:focus-visible,.send-cream:focus-visible{outline:2px solid #E8C9A8;outline-offset:3px;}
+.send-cream{height:64px;padding:0 40px;border:none;border-radius:3px;background:#F3ECE1;color:#6B1220;font-family:'Work Sans',sans-serif;font-size:18px;font-weight:600;cursor:pointer;transition:background 0.25s ease,transform 0.25s ease;}
+.send-cream:hover{background:#FFFFFF;transform:translateY(-2px);}
+.small-ln{font-family:'Work Sans',sans-serif;font-size:17px;width:100%;box-sizing:border-box;color:#F3ECE1;background:transparent;border:none;border-bottom:1.5px solid rgba(243,236,225,0.4);padding:10px 2px;}
+.small-ln::placeholder{color:rgba(243,236,225,0.45);}
+.small-ln:focus{outline:none;border-bottom-color:#E8C9A8;}
+textarea.small-ln{resize:vertical;min-height:52px;line-height:1.5;}
+@media (max-width: 900px){.letter{font-size:26px !important;line-height:1.9 !important;}.ln{max-width:100%;}}
+.done{animation:rise 0.8s cubic-bezier(0.16,1,0.3,1) both;}
+
+@media (max-width: 900px){
+.px{padding-left:24px !important;padding-right:24px !important;}
+.g2,.g3{grid-template-columns:minmax(0,1fr) !important;gap:32px !important;}
+.hide-sm{display:none !important;}
+.t-hero{font-size:30px !important;}
+.t-xl{font-size:38px !important;}
+.t-lg{font-size:34px !important;}
+.t-md{font-size:30px !important;}
+.t-cta{font-size:44px !important;}
+.t-count{font-size:130px !important;}
+.t-quote{font-size:23px !important;}
+.card{padding:36px 28px !important;min-height:0 !important;}
+.split{border-left:none !important;padding-left:0 !important;border-top:2px solid #6B1220 !important;padding-top:32px !important;}
+.sec{padding-top:96px !important;padding-bottom:96px !important;}
+.rings{opacity:0.35 !important;}
+.stack-row{flex-direction:column !important;align-items:flex-start !important;}
+}
+
+@keyframes spinSlow{to{transform:rotate(360deg);}}
+@keyframes spinSlowBack{to{transform:rotate(-360deg);}}
+@keyframes dashPull{to{stroke-dashoffset:-400;}}
+@keyframes popIn{from{opacity:0;transform:scale(0.92);}to{opacity:1;transform:scale(1);}}
+.ring-c{animation:spinSlow 200s linear infinite;transform-origin:center;}
+.ring-d{animation:spinSlowBack 260s linear infinite;transform-origin:center;}
+.dash-pull{animation:dashPull 24s linear infinite;}
+.offer{transition:transform 0.3s ease,background 0.3s ease,border-color 0.3s ease;}
+.offer:hover{transform:translateY(-6px);background:#22201C;border-color:#9A4A1E;}
+.offer:hover .dial-spin{animation-duration:14s;}
+.dial-spin{animation:spinSlow 44s linear infinite;transform-origin:center;}
+.pop{animation:popIn 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s both;}
+@supports (animation-timeline: view()){
+.reveal-pop{animation:popIn linear both;animation-timeline:view();animation-range:entry 10% entry 80%;}
+}
+@media (max-width:900px){
+.t-page{font-size:40px !important;}
+.dial-row{grid-template-columns:minmax(0,1fr) !important;}
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:80px;}
+[hidden]{display:none !important;}
+</style>
+</head>
+<body>
+
+<div style="width:100%;box-sizing:border-box;overflow-x:clip;background:#1A1714;">
+
+<div class="px" style="position:sticky;top:0;z-index:50;background:rgba(26,23,20,0.94);padding:16px 64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(243,236,225,0.08);">
+<div style="display:flex;align-items:center;gap:32px;">
+<a href="index.html#contact" class="nav-link hide-sm" style="font-size:15px;white-space:nowrap;">&#8592; Home</a>
+<a href="#offerings" class="nav-link hide-sm" style="font-size:15px;white-space:nowrap;">What we do</a>
+<a href="#how" class="nav-link hide-sm" style="font-size:15px;white-space:nowrap;">How it works</a>
+<a href="index.html#contact" class="btn-maroon" style="display:inline-flex;align-items:center;justify-content:center;height:42px;box-sizing:border-box;background:#6B1220;padding:0 22px;border-radius:3px;font-size:14px;font-weight:500;line-height:1;white-space:nowrap;">Start a conversation</a>
+</div>
+<a href="#top" aria-label="Tracula Services home" style="display:flex;align-items:center;gap:12px;margin-left:24px;flex-shrink:0;">
+<img src="assets/tracula-logo-cream.png" alt="Tracula" style="height:30px;width:auto;display:block;">
+<span class="hide-sm" style="font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:#B9924F;">Services</span>
+</a>
+</div>
+
+<div id="top" class="px" style="position:relative;padding:130px 64px 120px;overflow:hidden;">
+<svg class="rings" aria-hidden="true" viewBox="0 0 900 900" style="position:absolute;right:-240px;top:-180px;width:1000px;height:1000px;">
+<g class="ring-c">
+<circle cx="450" cy="450" r="430" fill="none" stroke="#6B1220" stroke-opacity="0.6" stroke-width="1.5" stroke-dasharray="2 16"></circle>
+<circle cx="450" cy="450" r="300" fill="none" stroke="#6B1220" stroke-opacity="0.85" stroke-width="22" stroke-dasharray="3 28"></circle>
+</g>
+<g class="ring-d">
+<circle cx="450" cy="450" r="370" fill="none" stroke="#B9924F" stroke-opacity="0.45" stroke-width="1" stroke-dasharray="46 26"></circle>
+<circle cx="450" cy="450" r="210" fill="none" stroke="#F3ECE1" stroke-opacity="0.12" stroke-width="1"></circle>
+</g>
+</svg>
+<div style="position:relative;max-width:840px;">
+<p class="pop" style="font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:#E8A9A0;">Pillar one</p>
+<h1 class="pop t-page" style="font-size:72px;line-height:1.06;margin-top:14px;color:#F3ECE1;">Operational Excellence Support</h1>
+<p class="pop" style="font-family:'Fraunces',serif;font-size:32px;line-height:1.4;color:#F3ECE1;margin-top:32px;max-width:720px;">Someone in your corner who knows what the floor actually looks like.</p>
+<p class="pop" style="font-size:19px;line-height:1.65;color:#C9BFB0;margin-top:24px;max-width:640px;">Sometimes you need a fresh set of eyes for a month. Sometimes you want someone alongside you all year. Either way, it starts with a conversation about where your store is and where you want it to go, not a package we picked out ahead of time.</p>
+<div class="pop stack-row" style="display:flex;gap:28px;align-items:center;margin-top:44px;">
+<a href="index.html#contact" class="btn-maroon" style="background:#6B1220;padding:18px 34px;border-radius:3px;font-size:16px;font-weight:500;white-space:nowrap;">Start a conversation</a>
+<a href="#offerings" class="nav-link" style="font-size:16px;border-bottom:1px solid rgba(243,236,225,0.4);padding-bottom:3px;">See what's included</a>
+</div>
+</div>
+</div>
+
+<div class="ticker" style="background:#6B1220;padding:20px 0;overflow:hidden;white-space:nowrap;">
+<div class="ticker-track" style="display:inline-flex;align-items:center;gap:40px;font-family:'Fraunces',serif;font-size:24px;color:#F3ECE1;padding-right:40px;">
+<span>Merchandising standards</span><svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#E8C9A8"></path></svg>
+<span>Team training</span><svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#E8C9A8"></path></svg>
+<span>Metrics and accountability</span><svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#E8C9A8"></path></svg>
+<span>Store leadership</span><svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#E8C9A8"></path></svg>
+<span>Product knowledge</span><svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#E8C9A8"></path></svg>
+<span aria-hidden="true">Merchandising standards</span><svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#E8C9A8"></path></svg>
+<span aria-hidden="true">Team training</span><svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#E8C9A8"></path></svg>
+<span aria-hidden="true">Metrics and accountability</span><svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#E8C9A8"></path></svg>
+<span aria-hidden="true">Store leadership</span><svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#E8C9A8"></path></svg>
+<span aria-hidden="true">Product knowledge</span><svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#E8C9A8"></path></svg>
+</div>
+</div>
+
+<div id="offerings" class="px sec" style="background:#1A1714;padding:140px 64px;">
+<h2 class="reveal t-lg" style="font-size:52px;line-height:1.14;max-width:760px;">What we get into together.</h2>
+<div class="g2 dial-row" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:72px;">
+
+<div class="offer reveal-pop" style="position:relative;overflow:hidden;border:1px solid rgba(243,236,225,0.14);border-radius:6px;padding:44px;min-height:300px;">
+<svg aria-hidden="true" viewBox="0 0 200 200" style="position:absolute;right:-40px;top:-40px;width:220px;height:220px;opacity:0.5;">
+<g class="dial-spin"><circle cx="100" cy="100" r="92" fill="none" stroke="#6B1220" stroke-width="10" stroke-dasharray="2 12"></circle><circle cx="100" cy="100" r="66" fill="none" stroke="#B9924F" stroke-opacity="0.5" stroke-width="1" stroke-dasharray="20 12"></circle></g>
+</svg>
+<h3 style="position:relative;font-size:30px;color:#F3ECE1;">Merchandising standards</h3>
+<p style="position:relative;font-size:17px;line-height:1.65;color:#C9BFB0;margin-top:18px;max-width:420px;">Full shelves, clean endcaps, signage that makes sense. We help you set the standard, then build the habits that hold it in place after we leave.</p>
+</div>
+
+<div class="offer reveal-pop" style="position:relative;overflow:hidden;border:1px solid rgba(243,236,225,0.14);border-radius:6px;padding:44px;min-height:300px;">
+<svg aria-hidden="true" viewBox="0 0 200 200" style="position:absolute;right:-40px;top:-40px;width:220px;height:220px;opacity:0.5;">
+<g class="dial-spin"><circle cx="100" cy="100" r="92" fill="none" stroke="#6B1220" stroke-width="10" stroke-dasharray="26 10"></circle><circle cx="100" cy="100" r="66" fill="none" stroke="#B9924F" stroke-opacity="0.5" stroke-width="1" stroke-dasharray="20 12"></circle></g>
+</svg>
+<h3 style="position:relative;font-size:30px;color:#F3ECE1;">Team training and product knowledge</h3>
+<p style="position:relative;font-size:17px;line-height:1.65;color:#C9BFB0;margin-top:18px;max-width:420px;">The difference between a team member who points down the aisle and one who walks the customer to it and knows what they're looking at.</p>
+</div>
+
+<div class="offer reveal-pop" style="position:relative;overflow:hidden;border:1px solid rgba(243,236,225,0.14);border-radius:6px;padding:44px;min-height:300px;">
+<svg aria-hidden="true" viewBox="0 0 200 200" style="position:absolute;right:-40px;top:-40px;width:220px;height:220px;opacity:0.5;">
+<g class="dial-spin"><circle cx="100" cy="100" r="92" fill="none" stroke="#6B1220" stroke-width="10" stroke-dasharray="60 20"></circle><circle cx="100" cy="100" r="66" fill="none" stroke="#B9924F" stroke-opacity="0.5" stroke-width="1" stroke-dasharray="20 12"></circle></g>
+</svg>
+<h3 style="position:relative;font-size:30px;color:#F3ECE1;">Metrics and accountability</h3>
+<p style="position:relative;font-size:17px;line-height:1.65;color:#C9BFB0;margin-top:18px;max-width:420px;">The numbers that actually tell you how the store is running, and a rhythm for reviewing them that your managers will stick with.</p>
+</div>
+
+<div class="offer reveal-pop" style="position:relative;overflow:hidden;border:1px solid rgba(243,236,225,0.14);border-radius:6px;padding:44px;min-height:300px;">
+<svg aria-hidden="true" viewBox="0 0 200 200" style="position:absolute;right:-40px;top:-40px;width:220px;height:220px;opacity:0.5;">
+<g class="dial-spin"><circle cx="100" cy="100" r="92" fill="none" stroke="#6B1220" stroke-width="10" stroke-dasharray="3 16"></circle><circle cx="100" cy="100" r="66" fill="none" stroke="#B9924F" stroke-opacity="0.5" stroke-width="1" stroke-dasharray="20 12"></circle></g>
+</svg>
+<h3 style="position:relative;font-size:30px;color:#F3ECE1;">Store leadership coaching</h3>
+<p style="position:relative;font-size:17px;line-height:1.65;color:#C9BFB0;margin-top:18px;max-width:420px;">Running a store is hard, and most managers learned it on the fly. We work with your leaders on the parts nobody trained them for.</p>
+</div>
+</div>
+</div>
+
+<div id="how" class="px sec" style="background:#F3ECE1;padding:150px 64px;color:#1A1714;position:relative;overflow:hidden;">
+<svg aria-hidden="true" viewBox="0 0 800 800" style="position:absolute;left:-320px;bottom:-320px;width:760px;height:760px;opacity:0.5;">
+<g class="ring-c"><circle cx="400" cy="400" r="380" fill="none" stroke="#6B1220" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="2 14"></circle><circle cx="400" cy="400" r="260" fill="none" stroke="#B9924F" stroke-opacity="0.45" stroke-width="16" stroke-dasharray="3 22"></circle></g>
+</svg>
+<div style="position:relative;">
+<h2 class="reveal t-lg" style="font-size:52px;line-height:1.14;color:#1A1714;max-width:760px;">It starts with listening.</h2>
+<p class="reveal" style="font-size:19px;line-height:1.65;color:#4A4038;max-width:640px;margin-top:26px;">No two stores need the same thing, so we don't start by telling you what you need. We start by asking. From there we build support around your goals, at whatever pace and format fits the way you actually work.</p>
+<div class="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:88px;">
+<div class="reveal" style="text-align:left;">
+<svg aria-hidden="true" viewBox="0 0 160 160" style="width:120px;height:120px;">
+<circle cx="80" cy="80" r="74" fill="none" stroke="#DCCFBB" stroke-width="2"></circle>
+<g class="dial-spin"><circle cx="80" cy="80" r="74" fill="none" stroke="#6B1220" stroke-width="4" stroke-dasharray="120 345" stroke-linecap="round"></circle></g>
+<text x="80" y="95" text-anchor="middle" font-family="Fraunces, serif" font-size="48" fill="#6B1220">1</text>
+</svg>
+<h3 style="font-size:26px;color:#1A1714;margin-top:22px;">We talk first</h3>
+<p style="font-size:17px;line-height:1.6;color:#4A4038;margin-top:12px;">A real conversation about your goals, your challenges, and where you're starting from. No pitch.</p>
+</div>
+
+<div class="reveal" style="text-align:left;">
+<svg aria-hidden="true" viewBox="0 0 160 160" style="width:120px;height:120px;">
+<circle cx="80" cy="80" r="74" fill="none" stroke="#DCCFBB" stroke-width="2"></circle>
+<g class="dial-spin"><circle cx="80" cy="80" r="74" fill="none" stroke="#6B1220" stroke-width="4" stroke-dasharray="240 225" stroke-linecap="round"></circle></g>
+<text x="80" y="95" text-anchor="middle" font-family="Fraunces, serif" font-size="48" fill="#6B1220">2</text>
+</svg>
+<h3 style="font-size:26px;color:#1A1714;margin-top:22px;">We shape the support</h3>
+<p style="font-size:17px;line-height:1.6;color:#4A4038;margin-top:12px;">One-time push or ongoing partnership. Weekly, monthly, quarterly. Remote, on-site, or both.</p>
+</div>
+
+<div class="reveal" style="text-align:left;">
+<svg aria-hidden="true" viewBox="0 0 160 160" style="width:120px;height:120px;">
+<circle cx="80" cy="80" r="74" fill="none" stroke="#DCCFBB" stroke-width="2"></circle>
+<g class="dial-spin"><circle cx="80" cy="80" r="74" fill="none" stroke="#6B1220" stroke-width="4" stroke-dasharray="440 25" stroke-linecap="round"></circle></g>
+<text x="80" y="95" text-anchor="middle" font-family="Fraunces, serif" font-size="48" fill="#6B1220">3</text>
+</svg>
+<h3 style="font-size:26px;color:#1A1714;margin-top:22px;">We stay with it</h3>
+<p style="font-size:17px;line-height:1.6;color:#4A4038;margin-top:12px;">Check-ins that keep the momentum going, and a bench of specialists to pull in for whatever comes up.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="px sec" style="background:#221E1A;padding:140px 64px;">
+<div class="g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px;align-items:center;">
+<div class="reveal">
+<h2 class="t-lg" style="font-size:46px;line-height:1.16;color:#F3ECE1;">You don't have to know what to call the problem.</h2>
+<p style="font-size:18px;line-height:1.65;color:#C9BFB0;margin-top:24px;max-width:500px;">Most owners feel it before they can name it. Something's off, the energy's flat, the numbers aren't where they should be. Tell us what you're seeing and we'll help you figure out what's underneath it. That's what the first conversation is for.</p>
+</div>
+<div class="reveal" style="display:flex;justify-content:center;">
+<svg aria-hidden="true" viewBox="0 0 320 320" style="width:300px;height:300px;">
+<g class="ring-c"><circle cx="160" cy="160" r="150" fill="none" stroke="#6B1220" stroke-width="1.5" stroke-dasharray="2 14"></circle></g>
+<g class="ring-d"><circle cx="160" cy="160" r="116" fill="none" stroke="#B9924F" stroke-opacity="0.6" stroke-width="1" stroke-dasharray="40 20"></circle></g>
+<g class="ring-c"><circle cx="160" cy="160" r="80" fill="none" stroke="#6B1220" stroke-width="16" stroke-dasharray="3 22"></circle></g>
+<circle cx="160" cy="160" r="40" fill="none" stroke="#F3ECE1" stroke-opacity="0.25" stroke-width="1"></circle>
+</svg>
+</div>
+</div>
+</div>
+
+<div id="talk" class="px sec" style="background:#6B1220;padding:140px 64px;position:relative;overflow:hidden;">
+<svg class="rings" aria-hidden="true" viewBox="0 0 800 800" style="position:absolute;right:-280px;top:-280px;width:860px;height:860px;">
+<g class="ring-c"><circle cx="400" cy="400" r="380" fill="none" stroke="#F3ECE1" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="2 14"></circle><circle cx="400" cy="400" r="250" fill="none" stroke="#F3ECE1" stroke-opacity="0.16" stroke-width="16" stroke-dasharray="3 24"></circle></g>
+<g class="ring-d"><circle cx="400" cy="400" r="320" fill="none" stroke="#E8C9A8" stroke-opacity="0.45" stroke-width="1" stroke-dasharray="44 24"></circle></g>
+</svg>
+<div style="position:relative;max-width:900px;">
+<h2 class="reveal t-cta" style="font-size:66px;line-height:1.06;">Let's talk about where your store is headed.</h2>
+<p class="reveal" style="font-size:19px;line-height:1.6;color:#F0E4DA;margin-top:26px;max-width:560px;">Every relationship starts with a discovery conversation. Tell us a little about your store and we'll take it from there.</p>
+<div class="reveal stack-row" style="display:flex;align-items:center;gap:24px;margin-top:44px;">
+<a href="index.html#contact" class="btn-cream" style="background:#F3ECE1;color:#1A1714;padding:20px 38px;border-radius:3px;font-size:17px;font-weight:600;white-space:nowrap;">Start a conversation</a>
+<p style="font-size:16px;color:#F0E4DA;">Thanks for reaching out. We can't wait to hear about your store.</p>
+</div>
+</div>
+</div>
+<div class="px stack-row" style="background:#1A1714;padding:48px 64px;display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid rgba(243,236,225,0.08);">
+<div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
+<img src="assets/tracula-logo-cream.png" alt="Tracula" style="height:26px;width:auto;display:block;">
+<a href="mailto:contactus@tracula.net" style="font-size:15px;color:#E8C9A8;">contactus@tracula.net</a>
+</div>
+<p style="font-size:13px;color:#9A9083;max-width:420px;">A division of Nation's Best Holdings LLC. We only use what you send us to get in touch with you.</p>
+</div>
+
+</div>
+
+</body>
+</html>

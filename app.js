@@ -10,6 +10,7 @@ if (configured) {
   console.warn("Tracula: Firebase isn't configured yet. Paste your config into firebase-config.js.");
 }
 
+
 const form = document.getElementById("lead-form");
 const thanks = document.getElementById("thanks");
 const errorBox = document.getElementById("form-error");

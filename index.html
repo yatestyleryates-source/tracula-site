@@ -29,14 +29,14 @@ a{color:#F3ECE1;text-decoration:none;}
 a:hover{color:#FFFFFF;}
 h1,h2,h3{font-family:'Fraunces',serif;margin:0;font-weight:500;}
 p{margin:0;}
-@property --n{syntax:'<integer>';initial-value:100;inherits:false;}
+@property --n{syntax:'<integer>';initial-value:150;inherits:false;}
 @keyframes logoReveal{from{clip-path:inset(0 100% 0 0);}to{clip-path:inset(0 0 0 0);}}
 @keyframes rise{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
 @keyframes spin{to{transform:rotate(360deg);}}
 @keyframes spinBack{to{transform:rotate(-360deg);}}
 @keyframes ticker{to{transform:translateX(-50%);}}
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
-@keyframes countUp{from{--n:0;}to{--n:100;}}
+@keyframes countUp{from{--n:0;}to{--n:150;}}
 @keyframes scrollIn{from{opacity:0;transform:translateY(48px);}to{opacity:1;transform:translateY(0);}}
 @keyframes lineFill{from{color:rgba(26,23,20,0.16);}to{color:#1A1714;}}
 @keyframes lineFillMaroon{from{color:rgba(107,18,32,0.16);}to{color:#6B1220;}}
@@ -179,14 +179,14 @@ html{scroll-behavior:smooth;scroll-padding-top:80px;}
 <div class="ticker-track" style="display:inline-flex;align-items:center;gap:40px;font-family:'Fraunces',serif;font-size:26px;color:#F3ECE1;padding-right:40px;">
 <span>Physical inventories</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
 <span>Inventory optimization</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
-<span>Seasonal transitions</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
+<span>Cycle counting</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
 <span>Fast Query workflows</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
 <span>Merchandising standards</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
 <span>Team training</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
 <span>Store leadership</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
 <span aria-hidden="true">Physical inventories</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
 <span aria-hidden="true">Inventory optimization</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
-<span aria-hidden="true">Seasonal transitions</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
+<span aria-hidden="true">Cycle counting</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
 <span aria-hidden="true">Fast Query workflows</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
 <span aria-hidden="true">Merchandising standards</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
 <span aria-hidden="true">Team training</span><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M6 0 12 6 6 12 0 6Z" fill="#B9924F"></path></svg>
@@ -249,7 +249,7 @@ html{scroll-behavior:smooth;scroll-padding-top:80px;}
 <h3 class="t-md" style="font-size:46px;line-height:1.1;margin-top:28px;">Operational Excellence Support</h3>
 <p style="font-size:18px;line-height:1.6;color:#EBD9D2;margin-top:20px;max-width:460px;">Guidance that starts with a real conversation about your goals, then scales to fit. A one-time push, or a long-term partnership.</p>
 </div>
-<a href="#contact" class="explore" style="display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:500;color:#F3ECE1;">Explore Operational Excellence<svg aria-hidden="true" width="20" height="12" viewBox="0 0 20 12"><path d="M0 6h18M13 1l5 5-5 5" fill="none" stroke="#B9924F" stroke-width="1.6"></path></svg></a>
+<a href="operational-excellence.html" class="explore" style="display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:500;color:#F3ECE1;">Explore Operational Excellence<svg aria-hidden="true" width="20" height="12" viewBox="0 0 20 12"><path d="M0 6h18M13 1l5 5-5 5" fill="none" stroke="#B9924F" stroke-width="1.6"></path></svg></a>
 </div>
 <div style="display:flex;flex-direction:column;border-top:1px solid rgba(243,236,225,0.2);">
 <div style="padding:20px 0;border-bottom:1px solid rgba(243,236,225,0.2);font-size:18px;">Weekly, monthly, or quarterly check-ins</div>
@@ -266,12 +266,13 @@ html{scroll-behavior:smooth;scroll-padding-top:80px;}
 <h3 class="t-md" style="font-size:46px;line-height:1.1;margin-top:28px;">Services</h3>
 <p style="font-size:18px;line-height:1.6;color:#F2DDCF;margin-top:20px;max-width:460px;">Hands-on projects, delivered remotely through data and planning, or on-site with a Tracula facilitator right alongside your team.</p>
 </div>
-<a href="#contact" class="explore" style="display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:500;color:#F3ECE1;">Explore Services<svg aria-hidden="true" width="20" height="12" viewBox="0 0 20 12"><path d="M0 6h18M13 1l5 5-5 5" fill="none" stroke="#F3ECE1" stroke-width="1.6"></path></svg></a>
+<a href="services.html" class="explore" style="display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:500;color:#F3ECE1;">Explore Services<svg aria-hidden="true" width="20" height="12" viewBox="0 0 20 12"><path d="M0 6h18M13 1l5 5-5 5" fill="none" stroke="#F3ECE1" stroke-width="1.6"></path></svg></a>
 </div>
 <div style="display:flex;flex-direction:column;border-top:1px solid rgba(243,236,225,0.25);">
 <div style="padding:20px 0;border-bottom:1px solid rgba(243,236,225,0.25);font-size:18px;">Full physical inventories</div>
 <div style="padding:20px 0;border-bottom:1px solid rgba(243,236,225,0.25);font-size:18px;">Inventory optimization: cut dead stock, close product gaps</div>
 <div style="padding:20px 0;border-bottom:1px solid rgba(243,236,225,0.25);font-size:18px;">Seasonal transition support</div>
+<div style="padding:20px 0;border-bottom:1px solid rgba(243,236,225,0.25);font-size:18px;">Cycle counting for Epicor Eagle stores, the original Tracula program</div>
 <div style="padding:20px 0;border-bottom:1px solid rgba(243,236,225,0.25);font-size:18px;">Your team leads, we facilitate</div>
 </div>
 </div>
@@ -283,7 +284,7 @@ html{scroll-behavior:smooth;scroll-padding-top:80px;}
 <h3 class="t-md" style="font-size:46px;line-height:1.1;margin-top:28px;">FQ Enablement Services</h3>
 <p style="font-size:18px;line-height:1.6;color:#D6E0E6;margin-top:20px;max-width:460px;">Working hand in hand with Fast Query so your team gets the full value out of the platform, with the depth to go further when you need it.</p>
 </div>
-<a href="#contact" class="explore" style="display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:500;color:#F3ECE1;">Explore FQ Enablement<svg aria-hidden="true" width="20" height="12" viewBox="0 0 20 12"><path d="M0 6h18M13 1l5 5-5 5" fill="none" stroke="#B9924F" stroke-width="1.6"></path></svg></a>
+<a href="fq-enablement.html" class="explore" style="display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:500;color:#F3ECE1;">Explore FQ Enablement<svg aria-hidden="true" width="20" height="12" viewBox="0 0 20 12"><path d="M0 6h18M13 1l5 5-5 5" fill="none" stroke="#B9924F" stroke-width="1.6"></path></svg></a>
 </div>
 <div style="display:flex;flex-direction:column;border-top:1px solid rgba(243,236,225,0.2);">
 <div style="padding:20px 0;border-bottom:1px solid rgba(243,236,225,0.2);font-size:18px;">Custom workflows and reports</div>
@@ -345,9 +346,12 @@ html{scroll-behavior:smooth;scroll-padding-top:80px;}
 </div>
 <div class="g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:80px;align-items:center;margin-top:100px;">
 <div class="reveal">
-<p style="font-size:18px;color:#B9924F;font-family:'Fraunces',serif;font-style:italic;">Trusted by nearly</p>
+<p style="font-size:18px;color:#B9924F;font-family:'Fraunces',serif;font-style:italic;">Trusted by</p>
+<div style="display:flex;align-items:flex-start;">
 <div class="count t-count" style="font-family:'Fraunces',serif;font-size:200px;font-weight:600;line-height:0.95;color:#F3ECE1;"></div>
-<p style="font-size:19px;color:#C9BFB0;margin-top:12px;">independent retailers and counting.</p>
+<span class="t-count" style="font-family:'Fraunces',serif;font-size:120px;font-weight:600;line-height:1.1;color:#B9924F;">+</span>
+</div>
+<p style="font-size:19px;color:#C9BFB0;margin-top:12px;">independent retail locations and counting.</p>
 </div>
 <div class="reveal split" style="border-left:2px solid #6B1220;padding-left:56px;">
 <p class="t-quote" style="font-family:'Fraunces',serif;font-size:30px;line-height:1.4;color:#F3ECE1;">Built by operators who have spent their careers inside independent hardware and lumber. Not consulting from the outside, but building expertise from the floor up.</p>
@@ -411,15 +415,21 @@ You can reach me at <input type="email" name="email" class="ln" aria-label="Emai
 
 <div class="stack-row" style="display:flex;align-items:center;gap:24px;margin-top:56px;">
 <button type="submit" class="send-cream" id="send">Start the conversation</button>
+<div>
 <p style="font-size:15px;color:#EBD9D2;">Thanks for reaching out. We can't wait to hear about your store.</p>
+<p style="font-size:14px;color:#D9BFB8;margin-top:8px;">We only use what you send us to get in touch with you. We never sell or share it, and you can ask us to delete it any time at <a href="mailto:contactus@tracula.net" style="color:#F0D9C4;">contactus@tracula.net</a>.</p>
+</div>
 </div>
 </form>
 </div>
 </div>
 
 <div class="px stack-row" style="background:#1A1714;padding:48px 64px;display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid rgba(243,236,225,0.08);">
+<div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;">
 <img src="assets/tracula-logo-cream.png" alt="Tracula" style="height:26px;width:auto;display:block;">
-<p style="font-size:13px;color:#9A9083;">A division of Nation's Best Holdings LLC</p>
+<a href="mailto:contactus@tracula.net" style="font-size:15px;color:#E8C9A8;">contactus@tracula.net</a>
+</div>
+<p style="font-size:13px;color:#9A9083;max-width:420px;">A division of Nation's Best Holdings LLC. We only use what you send us to get in touch with you.</p>
 </div>
 
 </div>
